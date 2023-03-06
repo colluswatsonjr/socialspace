@@ -1,0 +1,164 @@
+.App {
+  text-align: center;
+}
+
+/* Navbar */
+nav {
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav li {
+  margin-left: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #ccc;
+}
+
+/* - - -  */
+
+/* Signin Signup */
+.sign-in-sign-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: black;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  font-size: 28px;
+  margin: 0 0 20px;
+}
+
+label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #1e90ff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0077b6;
+}
+
+/* - - - - - - - */
+
+/* Profile Page */
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-header img {
+  background-color: gray;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.profile-header h1 {
+  font-size: 36px;
+  margin: 0;
+}
+
+.profile-header p {
+  font-size: 18px;
+  /* color: #888; */
+  margin: 0;
+}
+
+.profile-content {
+  max-width: 600px;
+  margin-top: 40px;
+  text-align: justify;
+}
+
+.profile-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.profile-content p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.profile-content ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.profile-content li {
+  font-size: 16px;
+  line-height: 1.5;
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.profile-content li:before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  color: #999;
+}
+
+/* - - - - - -  */
