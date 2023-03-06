@@ -4,26 +4,14 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem "sqlite3"
 #
-# default: &default
-#   adapter: sqlite3
-#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-#   timeout: 5000
-
-# development:
-#   <<: *default
-#   database: db/development.sqlite3
-
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
 development:
   <<: *default
-  database: social_space_development
-
+  database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -34,6 +22,4 @@ test:
 
 production:
   <<: *default
-  database: social_space2_production
-  username: social_space2
-  password: <%= ENV["SOCIAL_SPACE2_DATABASE_PASSWORD"] %>
+  database: db/production.sqlite3
