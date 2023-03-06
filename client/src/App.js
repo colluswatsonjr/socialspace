@@ -8,12 +8,12 @@ import Navbar from './components/Navbar';
 import Profile from './pages/Profile';
 import SignInSignUp from './pages/SignInSignUp';
 import Explore from './pages/Explore';
+import Create from './pages/Create';
 
 
 function App() {
 
   const [user, setUser] = useState(null)
-  const [pages, setPages] = useState([])
 
   // auto login user
   useEffect(() => {
@@ -21,15 +21,6 @@ function App() {
       .then((r) => {
         if (r.ok) {
           r.json().then((user) => setUser(user))
-        } else {
-          r.json().then((error) => console.log('not logged in', error))
-        }
-      })
-
-    fetch('/users')
-      .then((r) => {
-        if (r.ok) {
-          r.json().then((users) => setPages([...users, ...pages]))
         } else {
           r.json().then((error) => console.log('not logged in', error))
         }
@@ -46,6 +37,11 @@ function App() {
     setUser(null)
   };
 
+  // const addSpace = (space) => {
+  //   // add page
+  //   setSpaces([space, ...spaces])
+  // };
+
   return (
     <div className="App">
       <UserContext.Provider value={{ user, login, logout }}>
@@ -55,9 +51,11 @@ function App() {
               <Navbar />
               <Routes>
                 <Route path='/' element={<div><h4>Home page: {user.username}</h4></div>} />
-                <Route path='/explore' element={<Explore pages={pages} />} />
-                <Route path='/create' element={<div><h4>Create page: {user.username}</h4></div>} />
-                <Route path='/profile' element={<Profile />} />
+                <Route path='/explore' element={<Explore />} />
+                <Route path='/create' element={<Create />} />
+                <Route path='/profile' element={<Profile />}>
+                  
+                </Route>
               </Routes>
             </>
             :

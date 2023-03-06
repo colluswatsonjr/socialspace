@@ -10,7 +10,6 @@ export default function Profile() {
             <h4>Profile Page: {user.username} </h4>
             <div className="profile-page">
                 <div className="profile-header">
-                    <img src="" alt="pp" className="profile-picture" />
                     <h1>{user.fname + ' ' + user.lname}</h1>
                     <p>'{user.username}'</p>
                     <p>{user.bio}</p>
