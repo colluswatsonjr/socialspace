@@ -37,7 +37,7 @@ function Navbar() {
           <a href="/create">Create</a>
         </li>
         <li>
-          <a href="/profile">Profile // {user.username}</a>
+          <a href={`/user/${user.username}`}>Profile // {user.username}</a>
         </li>
         <li>
           <button onClick={handleLogout}>Logout!</button>

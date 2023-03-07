@@ -9,6 +9,9 @@ import Profile from './pages/Profile';
 import SignInSignUp from './pages/SignInSignUp';
 import Explore from './pages/Explore';
 import Create from './pages/Create';
+import UserDetail from './components/UserDetail';
+import Home from './pages/Home';
+import SpaceDetail from './components/SpaceDetail';
 
 
 function App() {
@@ -50,12 +53,24 @@ function App() {
             <>
               <Navbar />
               <Routes>
-                <Route path='/' element={<div><h4>Home page: {user.username}</h4></div>} />
+                <Route exact path="/" element={<Home />} />
                 <Route path='/explore' element={<Explore />} />
                 <Route path='/create' element={<Create />} />
-                <Route path='/profile' element={<Profile />}>
-                  
+                <Route path={`/user/${user.username}`} element={<Profile />} />
+                <Route path="/user/:username" element={<UserDetail />} />
+                <Route path="/space/:title" element={<SpaceDetail />} />
+                <Route path='/*' element={<div><h4>Page not found...<a href='/'>go back home.</a></h4></div>} />
+
+                {/* <Route path='/' element={<Home/>}>
+                  <Route path='pages' element={}
                 </Route>
+                <Route path='/explore' element={<Explore />} />
+                <Route path='/create' element={<Create />} />
+                <Route path='/:page_name' element={<UserDetail/>}/>
+                <Route path='users' element={}>
+                  <Route path={`${user.username}`} element={<Profile />} />
+                  <Route path={`:username`} element={<UserDetail />} />
+                </Route> */}
               </Routes>
             </>
             :

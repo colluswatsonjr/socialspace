@@ -12,10 +12,10 @@ export default function Explore({ pages }) {
 
     return (
         <>
-            <h4>Profile Page: {user.username} </h4>
+            <h4>Explore Page: {user.username} </h4>
             <ul>
-                <Users/>
-                <Spaces/>
+                <Users />
+                <Spaces />
             </ul>
         </>
     )
