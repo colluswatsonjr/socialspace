@@ -1,10 +1,14 @@
 import React, { useContext, useState } from "react"
 import { UserContext } from "../context/UserContext"
+import { useNavigate } from 'react-router-dom';
+
 
 
 export default function Create() {
 
     const { user } = useContext(UserContext);
+    const navigate = useNavigate();
+
 
     const [title, setTitle] = useState('');
     const [bio, setBio] = useState('');
@@ -20,7 +24,10 @@ export default function Create() {
             })})
             .then((r)=>{
                 if(r.ok){
-                    r.json().then((space)=>console.log(space))
+                    r.json().then((space)=>{
+                        console.log(space)
+                        navigate(`/space/${space.title}`);
+                    })
                 }else{
                     r.json().then((error)=>console.log(error))
                 }
