@@ -4,19 +4,17 @@ import Users from "../components/Users";
 import { UserContext } from "../context/UserContext"
 
 
-export default function Explore({ pages }) {
+export default function Explore() {
 
     const { user } = useContext(UserContext);
-
-    console.log(pages)
 
     return (
         <>
             <h4>Explore Page: {user.username} </h4>
-            <ul>
+            <div className="grid">
                 <Users />
                 <Spaces />
-            </ul>
+            </div>
         </>
     )
 }

@@ -8,41 +8,31 @@ function Navbar() {
   const { user, logout } = useContext(UserContext);
   let navigate = useNavigate();
 
-  function handleLogout(){
-    fetch("/logout",{
+  function handleLogout() {
+    fetch("/logout", {
       method: "DELETE"
     })
-    .then((r) => {
-      if (r.ok) {
-        logout()
-        navigate('/')          
-        console.log('logged out')
-      }else{
-        r.json().then((error)=>console.log('logout error:', error))
-      }
-  });
+      .then((r) => {
+        if (r.ok) {
+          logout()
+          navigate('/')
+          console.log('logged out')
+        } else {
+          r.json().then((error) => console.log('logout error:', error))
+        }
+      });
 
   }
 
   return (
     <nav>
-      <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/explore">Explore</a>
-        </li>
-        <li>
-          <a href="/create">Create</a>
-        </li>
-        <li>
-          <a href={`/user/${user.username}`}>Profile // {user.username}</a>
-        </li>
-        <li>
-          <button onClick={handleLogout}>Logout!</button>
-        </li>
-      </ul>
+      <a href="/">Home</a>
+      <a href="/explore">Explore</a>
+      <a href="/create">Create</a>
+      <a href={`/user/${user.username}`}>Profile // {user.username}</a>
+      <div className="navbar-right">
+        <button type='submit' onClick={handleLogout}>Logout!</button>
+      </div>
     </nav>
   );
 }

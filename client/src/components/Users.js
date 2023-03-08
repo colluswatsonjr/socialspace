@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import { Link } from 'react-router-dom';
+import Card from "./Card";
 
 
 export default function Users() {
@@ -17,10 +19,7 @@ export default function Users() {
 
     return (
         <>
-            <h4>Users:</h4>
-            <ul>
-                {users.map((user) => <li key={user.username}>{user.username} : {user.bio ? user.bio : 'create bio'}</li>)}
-            </ul>
+            {users.map((user) => <Link key={user.username} to={`/user/${user.username}`} state><Card page={user} /></Link>)}
         </>
     )
 }

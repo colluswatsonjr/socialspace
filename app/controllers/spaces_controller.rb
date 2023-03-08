@@ -17,6 +17,7 @@ class SpacesController < ApplicationController
 
   def create
     space = Space.new(space_params)
+    space.creator = session[:user_id]
     if space.valid?
       space.save
       render json: space, status: :created

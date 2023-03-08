@@ -26,6 +26,26 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit_user
+    user = User.find(session[:user_id])
+    if user
+      user.update(user_params)
+     render json: user
+    else
+      render json: {error:"User Not Found"}, status: 404
+    end
+end
+
+def delete_user
+  user = User.find(session[:user_id])
+  if user
+      user.destroy
+      render json: {}
+  else
+      render json: {error:"User Not Found"}, status: 404
+  end
+end
+
   private
   def user_params
     params.permit(:username, :email, :fname, :lname, :bio, :password, :password_confirmation)

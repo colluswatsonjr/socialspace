@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react"
+import { Link } from 'react-router-dom';
+import Card from "./Card";
 
 
 export default function Spaces() {
     const [spaces, setSpaces] = useState([])
+
 
     useEffect(() => {
         fetch('/spaces')
@@ -17,10 +20,7 @@ export default function Spaces() {
 
     return (
         <>
-            <h4>Spaces:</h4>
-            <ul>
-                {spaces.map((space) => <li key={space.title}>{space.title} : {space.bio ? space.bio : 'create bio'}</li>)}
-            </ul>
+            {spaces.map((space) => <Link key={space.title} to={`/space/${space.title}`} state><Card page={space} /></Link>)}
         </>
     )
 }
