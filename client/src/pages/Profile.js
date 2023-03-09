@@ -16,6 +16,9 @@ export default function Profile() {
                 </div>
                 <div className="profile-content">
                     <h2>Following:</h2>
+                    <ul>
+                        {user.followees.map((x)=><li>{x.username}</li>)}
+                    </ul>
                     <h2>Subscribed:</h2>
                     <h2>Posts:</h2>
                 </div>

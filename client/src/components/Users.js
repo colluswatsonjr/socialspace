@@ -19,7 +19,7 @@ export default function Users() {
 
     return (
         <>
-            {users.map((user) => <Link key={user.username} to={`/user/${user.username}`} state><Card page={user} /></Link>)}
+            {users.map((user) => <Link key={user.username} to={`/user/${user.username}`} state={user}><Card page={user} /></Link>)}
         </>
     )
 }

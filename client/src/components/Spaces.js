@@ -20,7 +20,7 @@ export default function Spaces() {
 
     return (
         <>
-            {spaces.map((space) => <Link key={space.title} to={`/space/${space.title}`} state><Card page={space} /></Link>)}
+            {spaces.map((space) => <Link key={space.title} to={`/space/${space.title}`} state={space}><Card page={space} /></Link>)}
         </>
     )
 }

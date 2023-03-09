@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  # resources :followings
   resources :spaces
   resources :users
+
+  post '/users/:id/follow', to: "users#follow"
+  post '/users/:id/unfollow', to: "users#unfollow"
   
   get "/me", to: "users#show"
   post "/signup", to: "users#create"
