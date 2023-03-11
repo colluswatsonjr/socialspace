@@ -7,44 +7,44 @@ import '../src/stylesheets/App.css'
 import Navbar from './components/Navbar';
 import Profile from './pages/Profile';
 import SignInSignUp from './pages/SignInSignUp';
-import Explore from './pages/Explore';
 import Create from './pages/Create';
-import UserDetail from './components/UserDetail';
-import Home from './pages/Home';
-import SpaceDetail from './components/SpaceDetail';
 import EditUser from './components/EditUser';
+import UserProfile from './components/UserProfile';
+import SpaceProfile from './components/SpaceProfile';
 
 
 function App() {
 
   const [user, setUser] = useState(null)
+  const [users, setUsers] = useState([])
+  const [spaces, setSpaces] = useState([])
 
   // auto login user
   useEffect(() => {
-    fetch('/me')
-      .then((r) => {
-        if (r.ok) {
-          r.json().then((user) => setUser(user))
-        } else {
-          r.json().then((error) => console.log('not logged in', error))
-        }
-      })
-  }, [])
+    const fetchData = async () => {
+      const [response1, response2, response3] = await Promise.all([
+        fetch("/me"),
+        fetch("/users"),
+        fetch("/spaces"),
+      ]);
+      const user = await response1.json();
+      const users = await response2.json();
+      const spaces = await response3.json();
+
+      setUser(user);
+      setUsers(users);
+      setSpaces(spaces);
+    };
+    fetchData();
+  }, []);
 
   const login = (user) => {
-    // authenticate user and set user state
     setUser(user)
   };
 
   const logout = () => {
-    // clear user state
     setUser(null)
   };
-
-  // const addSpace = (space) => {
-  //   // add page
-  //   setSpaces([space, ...spaces])
-  // };
 
   return (
     <div className="App">
@@ -52,15 +52,24 @@ function App() {
         <Router>
           {user ?
             <>
-              <Navbar />
+              <Navbar className="Navbar" />
               <Routes>
-                <Route exact path="/" element={<Home />} />
-                <Route path='/explore' element={<Explore />} />
+                <Route exact path="/" element={
+                  <ul>
+                    {users.map((user) => <li key={user.username}><a href={`/user/${user.username}`}>{user.username}</a></li>)}
+                    {spaces.map((space) => <li key={space.title}><a href={`/space/${space.title}`}>{space.title}</a></li>)}
+                  </ul>
+
+                } />
                 <Route path='/create' element={<Create />} />
                 <Route path={`/user/${user.username}`} element={<Profile />} />
                 <Route path={`/user/${user.username}/edit`} element={<EditUser />} />
-                <Route path="/user/:username" element={<UserDetail />} />
-                <Route path="/space/:title" element={<SpaceDetail />} />
+                {users.map((user) => (
+                  <Route key={user.id} path={`/user/${user.username}`} element={<UserProfile userInfo={user} />} />
+                ))}
+                {spaces.map((space) => (
+                  <Route key={space.id} path={`/space/${space.title}`} element={<SpaceProfile spaceInfo={space} />} />
+                ))}
                 <Route path='/*' element={<div><h4>Page not found...<a href='/'>go back home.</a></h4></div>} />
               </Routes>
             </>

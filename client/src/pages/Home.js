@@ -6,10 +6,9 @@ export default function Home() {
 
     const { user } = useContext(UserContext);
 
-
     return (
-        <>
-            <h4>Home Page: {user.username} </h4>
-        </>
+        <div>
+            <h2>Home Page: {user.username} </h2>
+        </div>
     )
 }

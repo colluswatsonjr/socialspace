@@ -27,12 +27,9 @@ function Navbar() {
   return (
     <nav>
       <a href="/">Home</a>
-      <a href="/explore">Explore</a>
       <a href="/create">Create</a>
       <a href={`/user/${user.username}`}>Profile // {user.username}</a>
-      <div className="navbar-right">
-        <button type='submit' onClick={handleLogout}>Logout!</button>
-      </div>
+      <button className="navbar-right" type='submit' onClick={handleLogout}>Logout!</button>
     </nav>
   );
 }

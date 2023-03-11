@@ -1,28 +1,24 @@
 import { useContext } from "react"
 import { UserContext } from "../context/UserContext"
-
+import { useNavigate } from 'react-router';
 
 export default function Profile() {
+    let navigate = useNavigate();
     const { user } = useContext(UserContext);
 
     return (
-        <>
-            <h4>Profile Page: {user.username} </h4>
-            <div className="profile-page">
+            <div>
+                <button onClick={()=>navigate(`/user/${user.username}/edit`)}>Edit</button>
                 <div className="profile-header">
-                    <h1>{user.fname + ' ' + user.lname}</h1>
+                    <h3>{user.fname + ' ' + user.lname}</h3>
                     <p>'{user.username}'</p>
                     <p>{user.bio}</p>
                 </div>
                 <div className="profile-content">
-                    <h2>Following:</h2>
-                    <ul>
-                        {user.followees.map((x)=><li>{x.username}</li>)}
-                    </ul>
-                    <h2>Subscribed:</h2>
-                    <h2>Posts:</h2>
+                    <h4>Following:</h4>
+                    <h4>Subscribed:</h4>
+                    <h4>Posts:</h4>
                 </div>
             </div>
-        </>
     )
 }
