@@ -18,6 +18,7 @@ function App() {
   const [user, setUser] = useState(null)
   const [users, setUsers] = useState([])
   const [spaces, setSpaces] = useState([])
+  console.log(spaces)
 
   // auto login user
   useEffect(() => {

@@ -1,26 +1,24 @@
-# README
+# SocialSpace
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## What is SocialSpace?
+SocialSpace is a new social media site that aims to provide users with a unique and engaging experience. The site will be designed to allow users to connect with friends and family, share their experiences and memories, and engage in online communities based on their interests.
 
-Things you may want to cover:
+## Goal of SocialSpace!
+The objective of this project is to develop a fully functional and user-friendly social media platform that provides a seamless experience for users. The site will be designed with the latest web technologies and be accessible from desktop and mobile devices.
 
-* Ruby version
+## Features of SocialSpace:
+- User Registration and Login: Users will be able to create a profile and personal information, and securely log in to the site.
 
-* System dependencies
+- Home Feed: A personalized news feed that displays updates from friends and communities the user is following.
 
-* Configuration
+- Profile: A customizable profile page where users can showcase their photos, posts, personal information, and interests.
 
-* Database creation
+- Spaces: Users will be able to join and participate in online communities based on their interests.
 
-* Database initialization
+- Search: A search feature that allows users to find other users, communities, and content on the site.
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# socialspace
-# socialspace
+### 
+Created with: 
+Front-end: React, HTML, CSS, JavaScript
+Back-end: Ruby on Rails

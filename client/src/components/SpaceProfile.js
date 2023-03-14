@@ -1,10 +1,10 @@
 
 
 
-export default function SpaceProfile({ space }) {
-    console.log(space)
+export default function SpaceProfile({ spaceInfo }) {
+    console.log(spaceInfo)
 
     return (
-        <h3>Space Page: {space.title}</h3>
+        <h3>Space Page: {spaceInfo.title}</h3>
     )
 }
